@@ -6,7 +6,7 @@ def website_index(request):
     context = {
         "posts": posts,
     }
-    return render(request, "website/index.html", context)
+    return render(request, "../templates/index.html", context)
 
 def website_category(request, category):
     posts = Post.objects.filter(
@@ -16,7 +16,8 @@ def website_category(request, category):
         "category": category,
         "posts": posts,
     }
-    return render(request, "website/category.html", context)
+    #return render(request, "website/category.html", context)
+    return render(request, "../templates/category.html", context)
 
 
 def website_detail(request, pk):
@@ -25,4 +26,5 @@ def website_detail(request, pk):
         "post": post
     }
 
-    return render(request, "website/detail.html", context)
+    #return render(request, "website/detail.html", context)
+    return render(request, "../templates/detail.html", context)
