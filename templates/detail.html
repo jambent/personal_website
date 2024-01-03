@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+<head>
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
+    <!-- <link rel="stylesheet" href="./pyscript.css" />
+    <script defer src="./pyscript.js"></script> -->
+    <py-env></py-env>
+</head>
+{% block page_title %}
+    <h2>{{ post.title }}</h2>
+{% endblock page_title %}
+
+{% block page_content %}
+    <small>
+        {{ post.created_on.date }} | Categories:
+        {% for category in post.categories.all %}
+            <a href="{% url 'website_category' category.name %}">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </small>
+   
+    <p>{{ post.body | linebreaks }}</p>
+    <button onclick='location.href="{% url "script" %}"'>Click To Execute Script</button> <hr>
+        {{output_data}}
+    
+
+    
+{% endblock page_content %}
